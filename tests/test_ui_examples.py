@@ -1,3 +1,4 @@
+#This is a series of examples I am currently using to base future front-end UI test on. These are not published yet, but I am hoping to do so shortly.  
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
