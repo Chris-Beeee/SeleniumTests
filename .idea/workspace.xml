@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da008fa3-63d4-4ef0-b40e-27d7ff6337a1" name="Changes" comment="reuploading to git as code was unsaved">
-      <change afterPath="$PROJECT_DIR$/tests/api_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/api_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/api_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_giantbomb.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_giantbomb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_localhost.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_localhost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_ui_examples.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_ui_examples.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
   <component name="RunManager" selected="Python tests.Python tests in test_localhost.py">
@@ -122,7 +127,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-b3d66beaba9a-c6efb3732140-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26199.168" />
+        <option value="bundled-python-sdk-b63d5a1f7c97-b61e75351b1f-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.22158.340" />
       </set>
     </attachedChunks>
   </component>
