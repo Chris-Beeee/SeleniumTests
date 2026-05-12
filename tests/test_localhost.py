@@ -1,29 +1,54 @@
+#this is an example for error handling purposes. I need to update it so that it will pass under normal circumstances
+
 import pytest
-from pages.giantbomb_page import GiantBombPage
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 
-# Expected result from this is a FAIL because localhost:8000 probably isn't running GiantBomb
+
 def test_click_target_element(driver):
+    __tracebackhide__ = True  # Hides this function's source code from the output
     failure_message = None
+
     try:
-        page = GiantBombPage(driver)
-        
-        # Override URL for this specific test
-        page.URL = "http://localhost:8000"
-        page.open()
-        
-        # Dismiss popups
-        page.dismiss_popups()
-        
-        # Click target element
-        page.click_target_element()
-        
+        # 1. Navigate to the page
+        driver.get("http://localhost:8000")
+        # 2. Dismiss Cookie Popup (Optional)
+        try:
+            cookie_accept_btn = WebDriverWait(driver, 3).until(
+                EC.element_to_be_clickable((By.ID, "accept-cookies-btn-id"))
+            )
+            cookie_accept_btn.click()
+        except TimeoutException:
+            pass
+        # 3. Dismiss Marketing/Newsletter Popup (Optional)
+        try:
+            marketing_close_btn = WebDriverWait(driver, 3).until(
+                EC.element_to_be_clickable((By.CLASS_NAME, "marketing-modal-close-class"))
+            )
+            marketing_close_btn.click()
+        except TimeoutException:
+            pass
+        # 4. Click the main target element (Required)
+        target_element = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.ID, "my-target-element-id"))
+        )
+        target_element.click()
     except Exception as e:
-        if hasattr(e, 'msg') and e.msg:
-            clean_reason = e.msg
+        raw_error = str(e)
+
+        # Aggressively extract ONLY the specific error type
+        if "net::" in raw_error:
+            clean_error = "net::" + raw_error.split("net::")[1].split()[0]
+        elif "Message: " in raw_error:
+            clean_error = raw_error.split("Message: ")[1].split("\n")[0].strip()
         else:
-            clean_reason = str(e).split('\n')[0]
+            clean_error = raw_error.split("\n")[0]
 
-        failure_message = f"❌ TEST FAILED\nReason: {clean_reason}"
+        failure_message = f"Unexpected Failure: {clean_error}"
 
+    # OUTSIDE the except block to avoid exception chaining
     if failure_message:
+        # Fails the test (Red), but the pytrace=False argument hides the Python stack trace!
         pytest.fail(failure_message, pytrace=False)
